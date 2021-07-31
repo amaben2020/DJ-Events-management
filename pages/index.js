@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Layout from '../components/Layout';
 import axios from 'axios';
 import { API_URL } from 'config/index';
+import EventItem from '@/components/EventItem';
 
 export default function Home({ events }) {
 	console.log(events);
@@ -11,7 +12,7 @@ export default function Home({ events }) {
 			Find events here
 			{events.length === 0 && <div>No events to showcase</div>}
 			{events.map((evt) => (
-				<h3 key={evt.id}>{evt.name}</h3>
+				<EventItem key={evt.id} evt={evt} />
 			))}
 		</Layout>
 	);
