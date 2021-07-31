@@ -4,16 +4,23 @@ import Layout from '../components/Layout';
 import axios from 'axios';
 import { API_URL } from 'config/index';
 import EventItem from '@/components/EventItem';
+import Link from 'next/link';
 
 export default function Home({ events }) {
-	console.log(events);
 	return (
 		<Layout>
 			Find events here
 			{events.length === 0 && <div>No events to showcase</div>}
-			{events.map((evt) => (
+			{events.slice(0, 3).map((evt) => (
 				<EventItem key={evt.id} evt={evt} />
 			))}
+			<div>
+				{events.length && (
+					<Link href='/events'>
+						<a className='btn-secondary'>View All</a>
+					</Link>
+				)}
+			</div>
 		</Layout>
 	);
 }
