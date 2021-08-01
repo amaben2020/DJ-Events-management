@@ -11,7 +11,7 @@ export default function Home({ events }) {
 		<Layout>
 			Find events here
 			{events.length === 0 && <div>No events to showcase</div>}
-			{events.slice(0, 3).map((evt) => (
+			{events.map((evt) => (
 				<EventItem key={evt.id} evt={evt} />
 			))}
 			<div>
@@ -26,7 +26,7 @@ export default function Home({ events }) {
 }
 
 export const getStaticProps = async () => {
-	const response = await fetch(`${API_URL}/api/events`);
+	const response = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=4`);
 
 	const events = await response.json();
 

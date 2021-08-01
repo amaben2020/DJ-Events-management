@@ -6,11 +6,11 @@ const EventItem = ({ evt }) => {
 	return (
 		<div className={styles.event}>
 			<div className={styles.img}>
-				<Image
+				{/* <Image
 					src={evt.image ? evt.image : '/images/event-default.png'}
 					width={170}
 					height={100}
-				/>
+				/> */}
 			</div>
 			<div className={styles.info}>
 				<span>
